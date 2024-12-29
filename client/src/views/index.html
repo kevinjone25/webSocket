@@ -74,11 +74,14 @@
   </form>
 </body>
 
+<!-- Handle websocket -->
 <script>
   let conn;
   let chat = document.getElementById("chat");
+  //連接websocket的地方 會跟 host.go 的 ws 路徑一樣
   conn = new WebSocket("ws://" + document.location.host + "/room/ws");
 
+  // 下面就是一些 html 的操作 不太重要
   let messageJSON;
   conn.onmessage = function (evt) {
     messageJSON = JSON.parse(evt.data);
